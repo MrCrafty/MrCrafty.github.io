@@ -1,14 +1,15 @@
 import { Github, Linkedin, Mail } from "lucide-react";
 import { PersonalInfo } from "../src/App";
+import { motion } from "motion/react";
 
 export const Header = (props: {
   pagesList: { name: string; url: string }[];
   personalData: PersonalInfo;
 }) => {
   return (
-    <section className="snap-start h-screen bg-gradient-to-r from-purple-900 to-indigo-900 text-white flex items-center relative overflow-hidden">
+    <section className="snap-start h-screen bg-gradient-to-r from-purple-900 to-indigo-900 text-white flex items-center relative overflow-hidden  transform-gpu">
       <div className="absolute left-1/2 transform -translate-x-1/2 bottom-20 font-light text-xl z-50">
-        <ul className="flex gap-10  *:border-e-2 *:pe-10 ">
+        <ul className="flex gap-10  *:border-e-2 *:pe-10">
           {props.pagesList.map((data, index) => (
             <li className="last:border-e-0" key={index}>
               <a href={data.url} className="hover:text-purple-300 duration-300">
@@ -21,13 +22,17 @@ export const Header = (props: {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(100,50,255,0.1),transparent_50%)]"></div>
       <div className="container mx-auto px-6 relative">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
-          <div className="w-56 h-56 md:w-64 md:h-64 rounded-full overflow-hidden ring-4 ring-purple-400 shadow-2xl relative">
+          <motion.div
+            className="w-56 h-56 md:w-64 md:h-64 rounded-full overflow-hidden ring-4 ring-purple-400 shadow-2xl relative"
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1, transition: { duration: 1 } }}
+          >
             <img
               src="image.jpg"
               alt="Profile"
               className="w-full h-full object-cover"
             />
-          </div>
+          </motion.div>
           <div className="flex-1 text-center md:text-left">
             <h1 className="text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
               {props?.personalData?.name}

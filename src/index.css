@@ -5,3 +5,12 @@
 html {
   scroll-behavior: smooth;
 }
+
+body,
+a,
+input,
+textarea,
+label,
+button {
+  cursor: none;
+}

@@ -4,6 +4,7 @@ import Projects from "../components/Projects";
 import ContactMe from "../components/ContactMe";
 import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
+import Cursor from "../components/Cursor";
 
 export type EducationInfo = {
   degree: string;
@@ -72,6 +73,7 @@ function App() {
       />
       <Projects ProjectsList={ProjectsList} />
       <ContactMe />
+      <Cursor />
       <Footer />
     </div>
   );
